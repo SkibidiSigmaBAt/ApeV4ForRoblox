@@ -11098,3 +11098,22 @@ run(function()
 		end
 	end)
 end)
+
+run(function()
+    local connection
+    local TrainWhistleExploit = vape.Categories.Utility:CreateModule({
+        Name = "TrainWhistleExploit",
+        Function = function(callback)
+            if callback then
+                connection = game:GetService("RunService").Heartbeat:Connect(function()
+                    bedwars.AbilityController:useAbility('TRAIN_WHISTLE')
+                end)
+            else
+                if connection then
+                    connection:Disconnect()
+                end
+            end
+        end,
+        Tooltip = "Makes you a train"
+    })
+end)
