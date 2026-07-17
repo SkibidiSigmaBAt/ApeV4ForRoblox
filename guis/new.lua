@@ -252,21 +252,21 @@ local function checkKeybinds(compare, target, key)
 end
 
 local function createDownloader(text)
-	if mainapi.Loaded ~= true then
-		local downloader = mainapi.Downloader
-		if not downloader then
-			downloader = Instance.new('TextLabel')
-			downloader.Size = UDim2.new(1, 0, 0, 40)
-			downloader.BackgroundTransparency = 1
-			downloader.TextStrokeTransparency = 0
-			downloader.TextSize = 20
-			downloader.TextColor3 = Color3.new(1, 1, 1)
-			downloader.FontFace = uipallet.Font
-			downloader.Parent = mainapi.gui
-			mainapi.Downloader = downloader
-		end
-		downloader.Text = 'Downloading '..text
-	end
+    if mainapi.Loaded ~= true then
+        local downloader = mainapi.Downloader
+        if not downloader then
+            downloader = Instance.new('TextLabel')
+            downloader.Size = UDim2.new(1, 0, 0, 40)
+            downloader.BackgroundTransparency = 1
+            downloader.TextStrokeTransparency = 0
+            downloader.TextSize = 20
+            downloader.TextColor3 = Color3.new(1, 1, 1)
+            downloader.FontFace = uipallet.Font
+            downloader.Parent = mainapi.gui
+            mainapi.Downloader = downloader
+        end
+        downloader.Text = 'Downloading '..text
+    end
 end
 
 local function createMobileButton(buttonapi, position)
