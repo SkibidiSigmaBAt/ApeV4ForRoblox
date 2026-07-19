@@ -1,3 +1,10 @@
+local canDebug = true
+local run = function(func)
+	if identifyexecutor() == "Opiumware" then
+		task.wait()
+	end
+	func()
+end
 local run = function(func)
 	func()
 end
