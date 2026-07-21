@@ -6114,7 +6114,57 @@ run(function()
 		end
 	})
 end)
-	
+
+run(function()
+ local FakeLag
+    local Delay
+    
+    FakeLag = vape.Categories.Utility:CreateModule({
+        Name = 'FakeLag',
+        Function = function(callback)
+            if callback then
+                local teleported
+                FakeLag:Clean(lplr.OnTeleport:Connect(function()
+                    setfflag('PhysicsSenderMaxBandwidthBps', '38760')
+                    setfflag('DataSenderRate', '60')
+                    teleported = true
+                end))
+
+                repeat
+                    if physicsrate ~= oldphys or senderrate ~= oldsend then
+                        setfflag('PhysicsSenderMaxBandwidthBps', '0')
+                        setfflag('DataSenderRate', '60')
+                        oldphys, oldsend = '0', '60'
+                    end
+
+                    task.wait(Delay.Value)
+                until (not FakeLag.Enabled and not teleported)
+            else
+                if setfflag then
+                    setfflag('PhysicsSenderMaxBandwidthBps', '38760')
+                    setfflag('DataSenderRate', '60')
+                end
+                oldphys, oldsend = nil, nil
+            end
+        end,
+        ExtraText = function()
+		return 'larping ape'
+	end,
+        Tooltip = 'larping ape'
+    })
+
+    Delay = FakeLag:CreateSlider({
+        Name = 'Delay',
+        Min = 0,
+        Max = 5,
+        Decimal = 100,
+        Darker = true,
+        Suffix = function(val)
+            return val == 1 and 'second' or 'seconds'
+        end
+    })
+end)
+
 run(function()
 	local ChatSpammer
 	local Lines
