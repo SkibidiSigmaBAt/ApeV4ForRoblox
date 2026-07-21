@@ -6078,7 +6078,7 @@ run(function()
                         oldphys, oldsend = physicsrate, senderrate
                     end
 
-                    task.wait(0.03)
+                    task.wait(FakeLag.Value)
                 until (not Blink.Enabled and not teleported)
             else
                 if setfflag then
