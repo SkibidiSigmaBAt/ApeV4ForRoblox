@@ -11113,8 +11113,8 @@ end)
         return false
     end
     
-    AutoDodge = vape.Categories.Blatant:CreateModule({
-    	Name = 'Auto Dodge',
+    AutoDodge = vape.Categories.Utility:CreateModule({
+    	Name = '4BigGuysExploitWithGodmode',
     	Tooltip = 'Dodges melee and projectiles "blatantly"',
     	Function = function(call)
     		if call then
